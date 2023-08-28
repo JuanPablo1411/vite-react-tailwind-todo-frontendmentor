@@ -46,11 +46,11 @@ const App = () => {
 
   const [filter, setFilter] = useState("all");
 
-  const changeFilter = (filter) => setFilter(filter)
+  const changeFilter = (filter) => setFilter(filter);
 
   const filteredTodos = () => {
     switch (filter) {
-      case 'all':
+      case "all":
         return todos;
       case "active":
         return todos.filter((todo) => !todo.completed);
@@ -59,11 +59,10 @@ const App = () => {
       default:
         return todos;
     }
-
-  }
+  };
 
   return (
-    <div className="bg-[url('./assets/images/bg-mobile-light.jpg')] bg-no-repeat bg-contain bg-gray-300 min-h-screen">
+    <div className="bg-[url('./assets/images/bg-mobile-light.jpg')] bg-no-repeat bg-contain dark:bg-gray-900 dark:bg-[url('./assets/images/bg-mobile-dark.jpg')] bg-gray-300 min-h-screen">
       <Header />
 
       <main className="container mx-auto px-4 mt-8">
@@ -80,10 +79,11 @@ const App = () => {
           clearCompleted={clearCompleted}
         />
 
-        <TodoFilter changeFilter={changeFilter}/>
+        <TodoFilter changeFilter={changeFilter} />
       </main>
-
-      <p className="text-center"> Drag and drop to reorder list</p>
+      <footer className="mt-8 text-center dark:text-gray-400">
+        <p> Drag and drop to reorder list</p>
+      </footer>
     </div>
   );
 };
